@@ -95,7 +95,7 @@ int main() {
             cout<<"\nMuhammad Hanif Najmi Bin Mohd Hazrol \t 2023858778";
             // Display members name
             
-            cout<<"\n\n\nWe are group1 for assignment CSC413."<<endl;
+            cout<<"\n\n\nWe are group1 for assignment CSC402."<<endl;
             cout<<"This program is combination of login and registration"<<endl;
             cout<<"with a function of calculating CGPA for student.\n\n";
             system("pause");
@@ -104,7 +104,7 @@ int main() {
 		
 		else if (choice == 4) {
             cout << "If you find any bug or vulnerability please let us know." << endl;
-            cout<<"No flooding or DoS attack on this program. If we find you trying to\n";
+            cout<<"No flooding or DDoS attack on this program. If we find you trying to\n";
             cout<<"harming this program we will kick you ass.\n\n";
             cout<<"core admin      : webmaster@gmail.com"<<endl;
             cout<<"customer service: supporteam@gmail.com"<<endl;
