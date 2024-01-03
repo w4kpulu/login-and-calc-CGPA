@@ -102,10 +102,10 @@ int main() {
 		
 		else if (choice == 3) {
             cout<< "Shout out to members of team ";
-            cout<<"\n\n\nMuhammad Hafiz Izzuddin Bin Elias \t 2023436426";
-            cout<<"\nMuhammad Alif Hakimi Bin Mohd Ali \t 2023657162";
-            cout<<"\nMuhammad Hafiz Bin Ramli \t 2023492486";
-            cout<<"\nMuhammad Hanif Najmi Bin Mohd Hazrol \t 2023858778";
+            cout<<"\n\n\nMuhammad Hafiz Izzuddin Bin Elias       2023436426";
+            cout<<"\nMuhammad Alif Hakimi Bin Mohd Ali       2023657162";
+            cout<<"\nMuhammad Hafiz Bin Ramli                2023492486";
+            cout<<"\nMuhammad Hanif Najmi Bin Mohd Hazrol    2023858778";
             // Display members name
             
             cout<<"\n\n\nWe are group1 for assignment CSC402."<<endl;
@@ -118,7 +118,7 @@ int main() {
 		else if (choice == 4) {
             cout << "If you find any bug or vulnerability please let us know." << endl;
             cout<<"No flooding on this program. If we find you trying to\n";
-            cout<<"harming this program we will kick you .\n\n";
+            cout<<"harm this program we will kick you .\n\n";
             cout<<"core admin      : webmaster@gmail.com"<<endl;
             cout<<"customer service: supporteam@gmail.com"<<endl;
             cout<<"24/7 careline   : +60422222222\n\n";
