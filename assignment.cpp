@@ -3,26 +3,37 @@
 using namespace std;
 
 // Function to calculate CGPA
+
+const int MAX_SUBJECTS = 10;
+float credits[MAX_SUBJECTS];
+float points[MAX_SUBJECTS];
+
 float calculateCGPA() {
     int numOfSubjects;
-    cout << "\n\nEnter number of subjects: ";
-    cin >> numOfSubjects;
+    do {
+        cout << "\nEnter number of subjects (maximum " << MAX_SUBJECTS << "): ";
+        cin >> numOfSubjects;
+        if (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0) {
+            cout << "Invalid number of subjects. Please enter a number between 1 and " << MAX_SUBJECTS << ".\n";
+        }
+    } while (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0);
+
 
     float totalCredits = 0, totalGradePoints = 0;
-    for (int i = 1; i <= numOfSubjects; i++) {
-        float credits, point;
-        cout << "Enter credit hours for subject " << i << ": ";
-        cin >> credits;
-        totalCredits += credits;
+    for (int i = 0; i < numOfSubjects; i++) {
+        // Prompt and store subject information in arrays
+        cout << "Enter credit hours for subject " << i + 1 << ": ";
+        cin >> credits[i];
+        totalCredits += credits[i];
 
-        cout << "Enter point for subject " << i << ": ";
-        cin >> point;
-        totalGradePoints += credits * point;
+        cout << "Enter point for subject " << i + 1 << ": ";
+        cin >> points[i];
+        totalGradePoints += credits[i] * points[i];
     }
 
     if (totalCredits > 0) {
         return totalGradePoints / totalCredits;
-	    /*CGPA is determined by dividing sum of all Quality Points (credit hours * grade point) earned by 
+         /*CGPA is determined by dividing sum of all Quality Points (credit hours * grade point) earned by 
             the sum of credits attempted for semesters*/
     } else {
         cout << "Invalid input for credits." << endl;
