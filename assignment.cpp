@@ -22,6 +22,8 @@ float calculateCGPA() {
 
     if (totalCredits > 0) {
         return totalGradePoints / totalCredits;
+	    /*CGPA is determined by dividing sum of all Quality Points (credit hours * grade point) earned by 
+            the sum of credits attempted for semesters*/
     } else {
         cout << "Invalid input for credits." << endl;
         return -1; // Error code to indicate invalid calculation
@@ -104,8 +106,8 @@ int main() {
 		
 		else if (choice == 4) {
             cout << "If you find any bug or vulnerability please let us know." << endl;
-            cout<<"No flooding or DDoS attack on this program. If we find you trying to\n";
-            cout<<"harming this program we will kick you ass.\n\n";
+            cout<<"No flooding on this program. If we find you trying to\n";
+            cout<<"harming this program we will kick you .\n\n";
             cout<<"core admin      : webmaster@gmail.com"<<endl;
             cout<<"customer service: supporteam@gmail.com"<<endl;
             cout<<"24/7 careline   : +60422222222\n\n";
