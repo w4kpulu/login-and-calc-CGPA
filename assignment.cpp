@@ -7,6 +7,7 @@ using namespace std;
 const int MAX_SUBJECTS = 10;
 float credits[MAX_SUBJECTS];
 float points[MAX_SUBJECTS];
+//limit subject to 10
 
 float calculateCGPA() {
     int numOfSubjects;
@@ -17,6 +18,7 @@ float calculateCGPA() {
             cout << "Invalid number of subjects. Please enter a number between 1 and " << MAX_SUBJECTS << ".\n";
         }
     } while (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0);
+	//indicate the eligibility
 
 
     float totalCredits = 0, totalGradePoints = 0;
