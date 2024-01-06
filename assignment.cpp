@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
-// Function to calculate CGPA
+// Function to calculate current CGPA
 
 const int MAX_SUBJECTS = 10;
 float credits[MAX_SUBJECTS];
 float points[MAX_SUBJECTS];
-//limit subject to 10
 
 float calculateCGPA() {
     int numOfSubjects;
@@ -18,7 +18,6 @@ float calculateCGPA() {
             cout << "Invalid number of subjects. Please enter a number between 1 and " << MAX_SUBJECTS << ".\n";
         }
     } while (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0);
-	//indicate the eligibility
 
 
     float totalCredits = 0, totalGradePoints = 0;
@@ -36,12 +35,45 @@ float calculateCGPA() {
     if (totalCredits > 0) {
         return totalGradePoints / totalCredits;
          /*CGPA is determined by dividing sum of all Quality Points (credit hours * grade point) earned by 
-            the sum of credits attempted for semesters*/
+            the sum of credits attempted for semester*/
     } else {
         cout << "Invalid input for credits." << endl;
         return -1; // Error code to indicate invalid calculation
     }
 }
+
+// Function to calculate whole CGPA for entire semesters
+
+const int MAX_SEM = 7;
+float totalCGPA[MAX_SEM];
+float CGPA[MAX_SEM];
+
+float calculateWholeCGPA() {
+    int numOfSemester;
+
+    do {
+        cout << "\nEnter number of semesters (maximum " << MAX_SEM << "): ";
+        cin >> numOfSemester;
+        if (numOfSemester > MAX_SEM || numOfSemester <= 0) {
+            cout << "Invalid number of semester. Please enter a number between 1 and " << MAX_SEM << ".\n";
+        }
+    } while (numOfSemester > MAX_SEM || numOfSemester <= 0);
+
+    float totalCGPA = 0, CGPA;
+
+    for (int counter = 1; counter <= numOfSemester; counter++) {
+        cout << "\nEnter CGPA for semester " << counter << " : ";
+        cin >> CGPA;
+        if (CGPA < 0 || CGPA > 4) {
+            cout << "Invalid CGPA entered for semester " << counter << ". Please enter between 0 and 4." << endl;
+            return -1; // Return -1 for invalid CGPA
+        }
+        totalCGPA += CGPA;
+    }
+
+    return totalCGPA / numOfSemester;
+}
+
 
 int main() {
     int choice;
@@ -52,7 +84,7 @@ int main() {
     cout << "Reminder: if you are new to this site please register first.\n";
 
     while (running) {
-    	cout << "This program need you to login before calculating CGPA\n\n";
+    	cout << "This program need you to login before continue\n\n";
         cout << "Register[1]" << endl;
         cout << "Login[2]" << endl;
         cout << "About us[3]" << endl;
@@ -63,7 +95,6 @@ int main() {
         system("cls");
 
         if (choice == 1) {
-            
             cout << "\nEnter username: ";
             cin >> uname;
 
@@ -78,10 +109,12 @@ int main() {
             } while (pass != passInput);
 
             cout << "\nRegistration successful!";
-            cout<<"\nPlease return to login menu\n";
+            cout << "\nPlease return to the login menu\n";
             system("pause");
             system("cls");
-        } else if (choice == 2) {
+        } 
+		
+		else if (choice == 2) {
             cout << "Enter username: ";
             cin >> input;
             cout << "Enter password: ";
@@ -89,13 +122,120 @@ int main() {
 
             if (input == uname && passInput == pass) {
             	system("cls");
-                cout << "Welcome back, " << uname << "." << endl;
+               
+               int choice_log;
+               
+               while(choice_log!=4){
+               	cout<<"Welcome back "<<uname<<endl;
+               	cout<<"Please select your choice below."<<endl;
+               	cout<<"\nCalculate current CGPA [1]"<<endl;
+               	cout<<"Calculate CGPA for whole semester [2]"<<endl;
+               	cout<<"Course Management [3]"<<endl;
+               	cout<<"Exit[4]"<<endl;
+               	cout<<"\nEnter choice : ";
+               	cin>>choice_log;
+               	system("cls");
+               	
+                if(choice_log==1){
                 float cgpa = calculateCGPA();
                 if (cgpa != -1) {
-                    cout << "Your CGPA is: " << cgpa << endl;
+                    cout << "Your CGPA is: "<<setiosflags(ios::fixed|ios::showpoint)<<setprecision(2)<< cgpa << endl;
                 }
-                break; // Exit the loop after successful login and CGPA calculation
-            } else {
+                system("pause");
+				system("cls");
+			    }
+			    
+			    else if(choice_log==2){
+			    	float result = calculateWholeCGPA();
+			    	if(result != -1){
+			    		cout<<"Your final CGPA is : "<<setiosflags(ios::fixed|ios::showpoint)<<setprecision(2)<<result<<endl;
+					}
+					
+					system("pause");
+					system("cls");
+				}
+				
+				else if(choice_log==3){
+					int management;
+					
+					while(management!=3){
+						cout<<"myCourses [1]"<<endl;
+						cout<<"Timetable [2]"<<endl;
+						cout<<"eBook     [3]"<<endl;
+						cout<<"eQuiz     [4]"<<endl;
+						cout<<"Exit [5]"<<endl;
+						cout<<"\nEnter choice: ";
+						cin>>management;
+					    system("cls");
+					    
+					    if(management==1){
+					    //course outline for csc255
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==                    Courses List                       =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   CSC402  ==  PROGRAMMING 1                           =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   CSC413  ==  INTRODUCTION TO INTERACTIVE MULTIMEDIA  =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   CSC429  ==  COMPUTER ORGANIZATION AND ARCHITECTURE  =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   CTU552  ==  PHILOSOPHY AND CURRENT ISSUES           =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   HBU111  ==  NATIONAL KESATRIA 1                     =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   MAT406  ==  FOUNDATION MATHEMATICS                  =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    cout<<"==   PHI428  ==  PHILOSOPHY OF SCIENCE                   =="<<endl;
+					    cout<<"==========================================================="<<endl;
+					    		
+					    system("pause");
+					    system("cls");
+					    }
+							
+						
+						
+						
+						else if(management==2){
+							//Timetable
+ 						}
+						
+						else if(management==3){
+							//eBook
+						}
+						
+						else if(management==4){
+							//eQuiz
+						}
+						
+						else if(management==5){
+							cout<<"exiting course management...."<<endl;
+			    	        system("pause");
+			    	        system("cls");
+						}
+						
+						else{
+					        cout<<"invalid input.."<<endl;
+					        system("pause");
+					        system("cls");
+			         	}
+					}
+				}
+			    
+			    else if(choice_log==4){
+			    	cout<<"exiting login menu...."<<endl;
+			    	system("pause");
+			    	system("cls");
+				}
+				
+				else{
+					cout<<"invalid input.."<<endl;
+					system("pause");
+					system("cls");
+				}
+			   }
+            } 
+			
+			else {
                 cout << "Either username or password is incorrect." << endl;
                 system("pause");
                 system("cls");
