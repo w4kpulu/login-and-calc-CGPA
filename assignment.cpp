@@ -74,6 +74,29 @@ float calculateWholeCGPA() {
     return totalCGPA / numOfSemester;
 }
 
+//data for timetable (course management)
+
+const int num_timeslots=10;
+const int num_day=5;
+
+int Time[num_timeslots]={8,9,10,11,12,13,14,15,16,17};
+string Day[num_day]={"monday","tuesday","wednesday","thursday","friday"};
+
+//two dimensional array
+string activity[num_day][num_timeslots]={
+
+//monday
+{"NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS","CSC402","CSC402","NO CLASS"},
+//tuesday
+{"CSC413","CSC413","CSC413","MAT406","MAT406","MAT406","NO CLASS","NO CLASS","PHI428","PHI428"},
+//wednesday
+{"CSC429","CSC429","CTU552","CTU552","NO CLASS","NO CLASS","NO CLASS","CSC429","CSC429","CSC413"},
+//thursday
+{"CSC402","CSC402","CSC402","NO CLASS","NO CLASS","NO CLASS","MAT406","MAT406","MAT406","NO CLASS"},
+//friday
+{"CTU552","CTU552","NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS","NO CLASS"}
+};
+
 
 int main() {
     int choice;
@@ -161,9 +184,7 @@ int main() {
 					while(management!=3){
 						cout<<"myCourses [1]"<<endl;
 						cout<<"Timetable [2]"<<endl;
-						cout<<"eBook     [3]"<<endl;
-						cout<<"eQuiz     [4]"<<endl;
-						cout<<"Exit [5]"<<endl;
+						cout<<"Exit      [3]"<<endl;
 						cout<<"\nEnter choice: ";
 						cin>>management;
 					    system("cls");
@@ -197,17 +218,53 @@ int main() {
 						
 						else if(management==2){
 							//Timetable
+							
+							int time;
+							string day;
+							
+						    cout<<"Enter time in 24Hrs format (8,9,10,11,12,13,14,15,16,17): ";
+						    cin>>time;
+							
+							cout<<"Enter day (monday,tuesday,wednesday....etc): ";
+							cin>>day;
+							
+							int timeIndex=-1, dayIndex=-1;
+							
+							for(int i=0; i<num_day; i++){
+								if (Day[i]==day){
+									dayIndex=i;
+									break;
+								}
+							}
+							
+							for(int j=0; j<num_timeslots; j++){
+								if (Time[j]==time){
+									timeIndex=j;
+									break;
+								}
+							}
+							
+							if(dayIndex==-1 || timeIndex==-1){
+								cout<<"invalid time or day"<<endl;
+								system("pause");
+								system("cls");
+							}
+							
+							cout<<"=================================================================="<<endl;
+							cout<<"==                         Time Table                           =="<<endl;
+							cout<<"=================================================================="<<endl;
+							cout<<"==  Day        == "<<day<<endl;
+							cout<<"==  Time       == ("<<time<<":00)Hrs"<<endl;
+							cout<<"==  Class      == "<<activity[dayIndex][timeIndex]<<endl;
+							cout<<"==  Next Class == "<<activity[dayIndex][timeIndex+1]<<endl;
+							cout<<"==================================================================="<<endl;
+							cout<<"                         have fun in class                         "<<endl;
+							
+							system("pause");
+							system("cls");
  						}
 						
 						else if(management==3){
-							//eBook
-						}
-						
-						else if(management==4){
-							//eQuiz
-						}
-						
-						else if(management==5){
 							cout<<"exiting course management...."<<endl;
 			    	        system("pause");
 			    	        system("cls");
