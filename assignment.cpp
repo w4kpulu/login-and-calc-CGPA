@@ -1,7 +1,35 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <conio.h>
 using namespace std;
+
+//function for hide password
+
+string getHiddenPassword() {
+    const char BACKSPACE = 8;
+    const char ENTER = 13;
+
+    string password;
+    char ch = ' ';
+
+    while (ch != ENTER) {
+        ch = _getch();  // Use _getch() to read a character without echoing it
+        if (ch == BACKSPACE) {
+            if (!password.empty()) {
+                cout << "\b \b";  // Move the cursor back, erase the character, move the cursor back again
+                password.erase(password.size() - 1);  // Remove the last character from the string
+            }
+        } else if (ch != ENTER) {
+            cout << '*';
+            password += ch;
+        }
+    }
+
+    return password;
+}
+
+
 
 // Function to calculate current CGPA
 
@@ -15,7 +43,7 @@ float calculateCGPA() {
         cout << "\nEnter number of subjects (maximum " << MAX_SUBJECTS << "): ";
         cin >> numOfSubjects;
         if (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0) {
-            cout << "Invalid number of subjects. Please enter a number between 1 and " << MAX_SUBJECTS << ".\n";
+            cout << "Invalid number of subjects. Please enter a number between 1 to " << MAX_SUBJECTS << ".\n";
         }
     } while (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0);
 
@@ -141,7 +169,7 @@ int main() {
             cout << "Enter username: ";
             cin >> input;
             cout << "Enter password: ";
-            cin >> passInput;
+            passInput = getHiddenPassword();
 
             if (input == uname && passInput == pass) {
             	system("cls");
