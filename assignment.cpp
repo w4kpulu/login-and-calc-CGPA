@@ -336,16 +336,14 @@ int main() {
             // Display members name
             
             cout<<"\n\n\nWe are group1 for assignment CSC402."<<endl;
-            cout<<"This program is combination of login and registration"<<endl;
-            cout<<"with a function of calculating CGPA for student.\n\n";
+            cout<<"This system serve multiple features to facilitate rapid"<<endl;
+            cout<<"and easy access to information for student.\n\n";
             system("pause");
             system("cls");
         } 
 		
 		else if (choice == 4) {
             cout << "If you find any bug or vulnerability please let us know." << endl;
-            cout<<"No flooding on this program. If we find you trying to\n";
-            cout<<"harm this program we will kick you .\n\n";
             cout<<"core admin      : webmaster@gmail.com"<<endl;
             cout<<"customer service: supporteam@gmail.com"<<endl;
             cout<<"24/7 careline   : +60422222222\n\n";
