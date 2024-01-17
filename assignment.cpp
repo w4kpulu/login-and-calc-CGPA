@@ -45,7 +45,7 @@ float calculateCGPA() {
         cout << "\nEnter number of subjects (maximum " << MAX_SUBJECTS << "): ";
         cin >> numOfSubjects;
         if (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0) {
-        	 system("Color 84");//4 for red text and 8 for gray background
+        	 system("Color 48");//8 for gray text and 4 for red background
             cout << "Invalid number of subjects. Please enter a number between 1 to " << MAX_SUBJECTS << ".\n";
         }
     } while (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0);
@@ -87,7 +87,7 @@ float calculateWholeCGPA() {
         cout << "\nEnter number of semesters (maximum " << MAX_SEM << "): ";
         cin >> numOfSemester;
         if (numOfSemester > MAX_SEM || numOfSemester <= 0) {
-        	 system("Color 84");//4 for red text and 8 for gray background
+        	 system("Color 48");//8 for gray text and 4 for red background
             cout << "Invalid number of semester. Please enter a number between 1 and " << MAX_SEM << ".\n";
         }
     } while (numOfSemester > MAX_SEM || numOfSemester <= 0);
