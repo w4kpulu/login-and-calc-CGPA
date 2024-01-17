@@ -2,6 +2,7 @@
 #include <string>
 #include <iomanip>
 #include <conio.h>
+#include <windows.h>
 using namespace std;
 
 //function for hide password
@@ -40,9 +41,11 @@ float points[MAX_SUBJECTS];
 float calculateCGPA() {
     int numOfSubjects;
     do {
+    	 system("Color 81");//1 for blue text and 8 for gray background
         cout << "\nEnter number of subjects (maximum " << MAX_SUBJECTS << "): ";
         cin >> numOfSubjects;
         if (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0) {
+        	 system("Color 84");//4 for red text and 8 for gray background
             cout << "Invalid number of subjects. Please enter a number between 1 to " << MAX_SUBJECTS << ".\n";
         }
     } while (numOfSubjects > MAX_SUBJECTS || numOfSubjects <= 0);
@@ -51,11 +54,11 @@ float calculateCGPA() {
     float totalCredits = 0, totalGradePoints = 0;
     for (int i = 0; i < numOfSubjects; i++) {
         // Prompt and store subject information in arrays
-        cout << "Enter credit hours for subject " << i + 1 << ": ";
+        cout << "\nEnter credit hours for subject " << i + 1 << ": ";
         cin >> credits[i];
         totalCredits += credits[i];
 
-        cout << "Enter point for subject " << i + 1 << ": ";
+        cout << "\nEnter point for subject " << i + 1 << ": ";
         cin >> points[i];
         totalGradePoints += credits[i] * points[i];
     }
@@ -80,9 +83,11 @@ float calculateWholeCGPA() {
     int numOfSemester;
 
     do {
+    	 system("Color 81");//1 for blue text and 8 for gray background
         cout << "\nEnter number of semesters (maximum " << MAX_SEM << "): ";
         cin >> numOfSemester;
         if (numOfSemester > MAX_SEM || numOfSemester <= 0) {
+        	 system("Color 84");//4 for red text and 8 for gray background
             cout << "Invalid number of semester. Please enter a number between 1 and " << MAX_SEM << ".\n";
         }
     } while (numOfSemester > MAX_SEM || numOfSemester <= 0);
@@ -135,6 +140,7 @@ int main() {
     cout << "Reminder: if you are new to this site please register first.\n";
 
     while (running) {
+    	system("Color 81"); //1 for blue text and 8 for gray background
     	cout << "This program need you to login before continue\n\n";
         cout << "Register[1]" << endl;
         cout << "Login[2]" << endl;
@@ -155,10 +161,12 @@ int main() {
                 cout << "Confirm password: ";
                 cin >> passInput;
                 if (pass != passInput) {
+                	system("Color 84");  //8 for gray background and 4 for red text
                     cout << "Passwords do not match. Please try again." << endl;
                 }
             } while (pass != passInput);
-
+            
+            system("Color 82"); //8 for gray background and 2 for green text
             cout << "\nRegistration successful!";
             cout << "\nPlease return to the login menu\n";
             system("pause");
@@ -219,6 +227,7 @@ int main() {
 					    
 					    if(management==1){
 					    //course outline for csc255
+					    system("Color 85");//5 for purple text and 8 for gray background
 					    cout<<"==========================================================="<<endl;
 					    cout<<"==                    Courses List                       =="<<endl;
 					    cout<<"==========================================================="<<endl;
@@ -239,6 +248,7 @@ int main() {
 					    		
 					    system("pause");
 					    system("cls");
+					    system("Color 81");//1 for blue text and 8 for gray background
 					    }
 							
 						
@@ -273,11 +283,14 @@ int main() {
 							}
 							
 							if(dayIndex==-1 || timeIndex==-1){
+								 system("Color 84");//4 for red text and 8 for gray background
 								cout<<"invalid time or day"<<endl;
 								system("pause");
 								system("cls");
+								 system("Color 81");//1 for blue text and 8 for gray background
 							}
 							
+							 system("Color 85");//5 for purple text and 8 for gray background
 							cout<<"=================================================================="<<endl;
 							cout<<"==                         Time Table                           =="<<endl;
 							cout<<"=================================================================="<<endl;
@@ -290,6 +303,7 @@ int main() {
 							
 							system("pause");
 							system("cls");
+							 system("Color 81");//1 for blue text and 8 for gray background
  						}
 						
 						else if(management==3){
@@ -299,9 +313,11 @@ int main() {
 						}
 						
 						else{
+							system("Color 84");//4 for red text and 8 for gray background
 					        cout<<"invalid input.."<<endl;
 					        system("pause");
 					        system("cls");
+					        system("Color 81");//1 for blue text and 8 for gray background
 			         	}
 					}
 				}
@@ -313,21 +329,26 @@ int main() {
 				}
 				
 				else{
+					 system("Color 84");//4 for red text and 8 for gray background
 					cout<<"invalid input.."<<endl;
 					system("pause");
 					system("cls");
+					 system("Color 81");//1 for blue text and 8 for gray background
 				}
 			   }
             } 
 			
 			else {
+				system("Color 84");//4 for red text and 8 for gray background
                 cout << "Either username or password is incorrect." << endl;
                 system("pause");
                 system("cls");
+                 system("Color 81");//1 for blue text and 8 for gray background
             }
         } 
 		
 		else if (choice == 3) {
+			 system("Color 83");//3 for aqua text and 8 for gray background
             cout<< "Shout out to members of team ";
             cout<<"\n\n\nMuhammad Hafiz Izzuddin Bin Elias       2023436426";
             cout<<"\nMuhammad Alif Hakimi Bin Mohd Ali       2023657162";
@@ -340,9 +361,11 @@ int main() {
             cout<<"and easy access to information for student.\n\n";
             system("pause");
             system("cls");
+             system("Color 81");//1 for blue text and 8 for gray background
         } 
 		
 		else if (choice == 4) {
+			 system("Color 83");//3 for aqua text and 8 for gray background
             cout << "If you find any bug or vulnerability please let us know." << endl;
             cout<<"core admin      : webmaster@gmail.com"<<endl;
             cout<<"customer service: supporteam@gmail.com"<<endl;
@@ -350,6 +373,7 @@ int main() {
             // Display contact information
             system("pause");
             system("cls");
+             system("Color 81");//1 for blue text and 8 for gray background
             
         }
         
@@ -360,9 +384,11 @@ int main() {
         
 		
 		else{
+			 system("Color 84");//4 for red text and 8 for gray background
 			cout << "Invalid choice. Please enter a valid option." << endl;
             system("pause");
             system("cls");
+             system("Color 81");//1 for blue text and 8 for gray background
 		}
     }
 
